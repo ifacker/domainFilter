@@ -15,7 +15,7 @@
      -jp, -json-print    在终端打印执行结果的json串
      -nl, -no-logo       禁止输出logo等相关信息
      -ne, -no-err        禁止输出探测不到的域名信息
-     -n, -no-txt         禁止输出txt文件
+     -nt, -no-txt         禁止输出txt文件
      -nc, -no-csv        禁止输出csv文件。（默认会输出csv关系对照表）
      -v, -view           -v 打印所有的扫描信息
      🔔温馨提示：终端打印出来的 [+] IP -> Doamin 属于扫描信息实时打印，会有重复，去重后的结果在输出的文件中，使用去重后的数据请在输出的文件中获取
