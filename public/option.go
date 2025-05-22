@@ -11,4 +11,5 @@ type FlagOptions struct {
 	NoOutput    bool   // 不输出txt文件
 	NoOutputCSV bool   // 不输出csv文件
 	ViewPrint   bool   // 打印所有信息
+	ServerTools bool   //  serverTools 模式
 }

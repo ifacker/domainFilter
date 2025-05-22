@@ -10,6 +10,8 @@ import (
 	"github.com/ifacker/myutil"
 )
 
+var domainMap map[string]string
+
 func Run() {
 	if !public.Options.NoLogo {
 		fmt.Print(fmt.Sprintf(public.Logo, public.Version))
@@ -59,15 +61,40 @@ func Run() {
 
 	if !public.Options.NoOutput {
 		ipStr := ""
-		for key, value := range public.IpDomainMap {
-			if public.Options.OutDomain {
+		if public.Options.OutDomain {
+			domainMap = make(map[string]string)
+			for key, value := range public.IpDomainMap {
 				if len(value) >= 1 {
-					ipStr += value[0] + "\n"
+					domainMap[value[0]] = key
 				}
-			} else {
+			}
+			for key, _ := range domainMap {
+				ipStr += key + "\n"
+
+			}
+		} else {
+			for key, _ := range public.IpDomainMap {
 				ipStr += key + "\n"
 			}
 		}
 		myutil.WriteTxt(public.FileName+".txt", ipStr)
+	}
+
+	if public.Options.ServerTools {
+		if public.Options.OutDomain {
+			domainMap = make(map[string]string)
+			for key, value := range public.IpDomainMap {
+				if len(value) >= 1 {
+					domainMap[value[0]] = key
+				}
+			}
+			for key, _ := range domainMap {
+				fmt.Println(key)
+			}
+		} else {
+			for key, _ := range public.IpDomainMap {
+				fmt.Println(key)
+			}
+		}
 	}
 }

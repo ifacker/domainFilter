@@ -6,7 +6,7 @@ import (
 	"sync"
 )
 
-var Version = "1.0"
+var Version = "1.1"
 var Logo = `
   o__ __o                                               o             
  <|     v\                                            _<|>_           

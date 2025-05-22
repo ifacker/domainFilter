@@ -25,9 +25,12 @@ func Options() {
 		flagset.BoolVarP(&public.Options.JsonPrint, "json-print", "jp", false, "在终端打印执行结果的json串"),
 		flagset.BoolVarP(&public.Options.NoLogo, "no-logo", "nl", false, "禁止输出logo等相关信息"),
 		flagset.BoolVarP(&public.Options.NoErrDomain, "no-err", "ne", false, "禁止输出探测不到的域名信息"),
-		flagset.BoolVarP(&public.Options.NoOutput, "no-txt", "n", false, "禁止输出txt文件"),
+		flagset.BoolVarP(&public.Options.NoOutput, "no-txt", "nt", false, "禁止输出txt文件"),
 		flagset.BoolVarP(&public.Options.NoOutputCSV, "no-csv", "nc", false, "禁止输出csv文件。（默认会输出csv关系对照表）"),
 		flagset.BoolVarP(&public.Options.ViewPrint, "view", "v", false, "-v 打印所有的扫描信息\n🔔温馨提示：终端打印出来的 [+] IP -> Doamin 属于扫描信息实时打印，会有重复，去重后的结果在输出的文件中，使用去重后的数据请在输出的文件中获取"),
+	)
+	flagset.CreateGroup("custom", "定制参数",
+		flagset.BoolVarP(&public.Options.ServerTools, "server-tools", "st", false, "开启后，将使用ServerTools模式"),
 	)
 
 	flagset.Parse()
